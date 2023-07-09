@@ -16,7 +16,7 @@
         <nav class=" navbar navbar-expand navbar-dark bg-dark sticky-top" id="navbar">
             <!-- Navbar Brand-->
             <a class="navbar-brand" id="tituloNav" href="index.html">VisuMetric</a>
-            <button id="actualizar">actualizar</button>
+            <button id="actualizar">Actualizar contenido</button>
         </nav>
             <div id="layoutSidenav_content">
                 <main>
@@ -33,7 +33,7 @@
                                                 <div class="h6 mb-0 font-weight-bold text-gray-800" id="timezone"></div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                <i class="fa-solid fa-earth-americas icon"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -45,12 +45,12 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Earnings (Monthly)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1">
+                                                    Wind Speed</div>
+                                                <div class="h6 mb-0 font-weight-bold text-gray-800" id="windspeed_unit"></div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                <i class="fa-solid fa-wind icon"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -62,12 +62,12 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Earnings (Monthly)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1">
+                                                    Temperature</div>
+                                                <div class="h6 mb-0 font-weight-bold text-gray-800" id="temperature"></div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                <i class="fa-solid fa-temperature-three-quarters icon"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -79,12 +79,12 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Earnings (Monthly)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1">
+                                                    Elevation</div>
+                                                <div class="h6 mb-0 font-weight-bold text-gray-800" id="elevation"></div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                <i class="fa-solid fa-mountain icon"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -95,8 +95,8 @@
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart
+                                        <i class="fa-brands fa-hotjar chartIcon"></i>
+                                        Temperatura del aire por hora (Celsius)
                                     </div>
                                     <div class="card-body"><canvas id="myChart" width="100%" height="40"></canvas></canvas></div>
                                 </div>
@@ -104,8 +104,8 @@
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart
+                                        <i class="fa-solid fa-sun chartIcon"></i>
+                                        Máximo diario en el índice ultravioleta (Index)
                                     </div>
                                     <div class="card-body"><canvas id="myChartBar" width="100%" height="40"></canvas></canvas></div>
                                 </div>
@@ -113,7 +113,8 @@
                             <div class="col-xl-12">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        Tabla de mareas puertos del Ecuador
+                                        <i class="fa-solid fa-water chartIcon"></i>
+                                        Tabla de mareas en puertos del Ecuador
                                     </div>
                                     <div class="card-body"><div class="card-body" id="table-container"></div></div>
                                 </div>
@@ -124,7 +125,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="text-muted">Copyright &copy; VisuMetric 2023</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

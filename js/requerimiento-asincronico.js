@@ -4,7 +4,7 @@ let plotLine = (data) => {
     const dataset = {
         labels: data.hourly.time, /* ETIQUETA DE DATOS */
         datasets: [{
-            label: 'Temperatura semanal', /* ETIQUETA DEL GRÁFICO */
+            label: 'Temperatura por hora', /* ETIQUETA DEL GRÁFICO */
             data: data.hourly.temperature_2m, /* PODEMOS PONER TAMBIEN DATA[HOURLY][...] */ /* ARREGLO DE DATOS */
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
@@ -26,7 +26,7 @@ let plotBar = (data) => {
     const dataset = {
         labels: data.daily.time, /* ETIQUETA DE DATOS */
         datasets: [{
-            label: 'indice de uv maximo', /* ETIQUETA DEL GRÁFICO */
+            label: 'Índice de UV máximo', /* ETIQUETA DEL GRÁFICO */
             data: data.daily.uv_index_max, /* PODEMOS PONER TAMBIEN DATA[HOURLY][...] */ /* ARREGLO DE DATOS */
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
@@ -50,7 +50,7 @@ let plotBar = (data) => {
                 'rgb(201, 203, 207)'
               ],
               borderWidth: 3
-        }]
+        }],
     };
 
     const config = {
@@ -64,6 +64,12 @@ let plotBar = (data) => {
 let loadChartAndCard = (data) => {
     let timezone = data['timezone']
     document.querySelector('#timezone').textContent = timezone
+    let windspeed_unit = data['current_weather']["windspeed"]
+    document.querySelector('#windspeed_unit').textContent = windspeed_unit + " Km/h"
+    let temperature = data['current_weather']["temperature"]
+    document.querySelector('#temperature').textContent = temperature + " °C"
+    let elevation = data['elevation']
+    document.querySelector('#elevation').textContent = elevation + " m"
     plotLine(data)
     plotBar(data)
 }
@@ -82,7 +88,7 @@ let loadMeteo = () => {
         loadChartAndCard(JSON.parse(meteo))
         return;
     }
-    let URL = 'https://api.open-meteo.com/v1/forecast?latitude=-2.20&longitude=-79.89&hourly=temperature_2m&daily=uv_index_max&timezone=auto';
+    let URL = 'https://api.open-meteo.com/v1/forecast?latitude=-2.1962&longitude=-79.8862&hourly=temperature_2m&daily=uv_index_max&current_weather=true&timezone=auto';
     fetch(URL)
         .then(response => response.json())
         .then(data => {

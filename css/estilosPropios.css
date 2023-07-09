@@ -12,5 +12,40 @@
 
 #navbar {
     justify-content: space-between;
-    padding: 0% 5%;
+    padding: 0% 3.8%;
+}
+
+#actualizar {
+    padding: 5px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;	
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #143565;
+    border: none;
+    border-radius: 15px;
+    border: 1px solid #777575;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+#actualizar:hover {
+    background-color: #0d3448
+}
+  
+#actualizar:active {
+    background-color: #0a2332;
+    box-shadow: 0 1px #666;
+    transform: translateY(1px);
+}
+
+.icon {
+    font-size: 35px;
+}
+
+.chartIcon {
+    margin-right: 8px;
+    margin-left: 3px;
 }

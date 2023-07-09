@@ -6819,12 +6819,16 @@ textarea.form-control-lg {
 .sticky-top {
   position: sticky;
   top: 0;
-  z-index: 1020;
+  left: 0;
+  right: 0;
+  z-index: 5000;
 }
 
 .sticky-bottom {
   position: sticky;
   bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 1020;
 }
 

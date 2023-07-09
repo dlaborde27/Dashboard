@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+#tituloNav{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size:x-large
+}
+
+#titulo{
+    margin-bottom: 1.5%;
+}
+
+#navbar {
+    justify-content: space-between;
+    padding: 0% 5%;
+}

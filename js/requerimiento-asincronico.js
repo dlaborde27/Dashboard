@@ -61,46 +61,66 @@ let plotBar = (data) => {
     const chart2 = new Chart(ctx, config)
 }
 
-let load = (data) => {
-    console.log(data)
+let loadChartAndCard = (data) => {
     let timezone = data['timezone']
     document.querySelector('#timezone').textContent = timezone
     plotLine(data)
     plotBar(data)
 }
 
-let loadInocar = () => {
-  let url_proxy = 'https://cors-anywhere.herokuapp.com/'
-  let URL = url_proxy + 'https://www.inocar.mil.ec/mareas/consultan.php';
-
-  fetch(URL)
-    .then(response => response.text())
-    .then(data => {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(data, "text/html");
-      let contenedorMareas = xml.getElementsByClassName('container-fluid')[0];
-      let contenedorHTML = document.getElementById('table-container');
-      contenedorHTML.innerHTML = contenedorMareas.innerHTML;
-
-    })
-    .catch(console.error);
+let loadHTML = (html) => {
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(html, "text/html");
+    let contenedorMareas = xml.getElementsByClassName('container-fluid')[0];
+    let contenedorHTML = document.getElementById('table-container');
+    contenedorHTML.innerHTML = contenedorMareas.innerHTML;
 }
-    
-(function () {
+
+let loadMeteo = () => {
     let meteo = localStorage.getItem('meteo');
-    if(meteo == null) {
-        let URL = 'https://api.open-meteo.com/v1/forecast?latitude=-2.20&longitude=-79.89&hourly=temperature_2m&daily=uv_index_max&timezone=auto';
-        fetch(URL)
+    if(meteo != null) {
+        loadChartAndCard(JSON.parse(meteo))
+        return;
+    }
+    let URL = 'https://api.open-meteo.com/v1/forecast?latitude=-2.20&longitude=-79.89&hourly=temperature_2m&daily=uv_index_max&timezone=auto';
+    fetch(URL)
         .then(response => response.json())
         .then(data => {
-            load(data)
             /* GUARDAR DATA EN LA MEMORIA */
             localStorage.setItem("meteo", JSON.stringify(data))
-        })
+            loadChartAndCard(data)
+            })
         .catch(console.error);
-    } else {
-        /* CARGAR DATA DESDE LA MEMORIA */
-        load(JSON.parse(meteo))
+}
+
+let loadInocar = () => {
+    let inocar = localStorage.getItem('inocar');
+    if(inocar != null) {
+        loadHTML(inocar);
+        return;
     }
+    let url_proxy = 'https://cors-anywhere.herokuapp.com/'
+    let URL = url_proxy + 'https://www.inocar.mil.ec/mareas/consultan.php';
+    fetch(URL)
+        .then(response => response.text())
+        .then(data => {
+            /* GUARDAR DATA EN LA MEMORIA */
+            localStorage.setItem("inocar", data);
+            loadHTML(data);
+            })
+        .catch(console.error);
+}
+
+let actualizarInformacion = () => {
+    localStorage.removeItem('meteo');
+    localStorage.removeItem('inocar');
+    location.reload();
+}
+
+let botonActualizar = document.getElementById('actualizar');
+botonActualizar.addEventListener('click', actualizarInformacion);
+    
+(function () {
+    loadMeteo();
     loadInocar();
 })();

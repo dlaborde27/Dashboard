@@ -6,6 +6,12 @@
     font-size:x-large
 }
 
+#subtitulo{
+    font-family: 'system-ui';
+    font-size: 500;
+    text-align: center;
+}
+
 #navbar {
     justify-content: space-between;
     padding: 0% 3.8%;
@@ -46,12 +52,17 @@
     margin-left: 3px;
 }
 
+footer {
+    text-align: center;
+}
+
 
 table{
 	background-color: white;
 	text-align: left;
 	border-collapse: collapse;
 	width: 100%;
+    text-align: center;
 }
 
 th, td{

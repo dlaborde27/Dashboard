@@ -6,10 +6,6 @@
     font-size:x-large
 }
 
-#titulo{
-    margin-bottom: 1.5%;
-}
-
 #navbar {
     justify-content: space-between;
     padding: 0% 3.8%;
@@ -49,3 +45,31 @@
     margin-right: 8px;
     margin-left: 3px;
 }
+
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead{
+	background-color: #143565;
+	border-bottom: solid 5px #08161c;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td{
+	background-color: #143565;
+	color: white;
+}
+

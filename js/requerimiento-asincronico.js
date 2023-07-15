@@ -78,6 +78,13 @@ let loadHTML = (html) => {
     const parser = new DOMParser();
     const xml = parser.parseFromString(html, "text/html");
     let contenedorMareas = xml.getElementsByClassName('container-fluid')[0];
+    let subtitulo = contenedorMareas.getElementsByClassName('row')[0].querySelector('h2');
+    subtitulo.textContent = "Guayaquil - Río";
+    subtitulo.id = "subtitulo";
+    subtitulo.classList="mt-4";
+    subtitulo.classList="mb-4";
+    let subseccionRecursos = contenedorMareas.getElementsByClassName('row')[2];
+    subseccionRecursos.remove()
     let contenedorHTML = document.getElementById('table-container');
     contenedorHTML.innerHTML = contenedorMareas.innerHTML;
 }
@@ -125,7 +132,7 @@ let actualizarInformacion = () => {
 
 let botonActualizar = document.getElementById('actualizar');
 botonActualizar.addEventListener('click', actualizarInformacion);
-    
+
 (function () {
     loadMeteo();
     loadInocar();
